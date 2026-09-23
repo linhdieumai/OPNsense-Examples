@@ -1,0 +1,32 @@
+<model>
+    <mount>//OPNsense/helloworld</mount>
+    <description>
+        the OPNsense "Hello World" application
+    </description>
+    <items>
+        <general>
+            <Enabled type="BooleanField">
+                <default>1</default>
+                <Required>Y</Required>
+            </Enabled>
+            <SMTPHost type="HostnameField">
+                <Required>N</Required>
+            </SMTPHost>
+            <FromEmail type="EmailField">
+                <default>sample@example.com</default>
+                <Required>N</Required>
+            </FromEmail>
+            <ToEmail type="EmailField">
+                <Required>Y</Required>
+                <ValidationMessage>Please specify a valid email address.</ValidationMessage>
+            </ToEmail>
+            <ToEmailNote type="TextField">
+                <default>Enter recipient here</default>
+                <Required>N</Required>
+            </ToEmailNote>
+            <Description type="TextField">
+                <Required>N</Required>
+            </Description>
+        </general>
+    </items>
+</model>
