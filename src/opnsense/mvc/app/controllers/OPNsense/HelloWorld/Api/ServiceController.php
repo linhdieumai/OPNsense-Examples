@@ -15,4 +15,17 @@ class ServiceController extends ApiControllerBase
         }
         return ["status" => $status];
     }
+
+    public function testAction()
+    {
+        if ($this->request->isPost()) {
+            $bckresult = json_decode(trim((new Backend())->configdRun("helloworld test")), true);
+            if ($bckresult !== null) {
+                // chỉ trả về phản hồi chuẩn định dạng json
+                return $bckresult;
+            }
+        }
+        return ["message" => "unable to run config action"];
+    }
 }
+
